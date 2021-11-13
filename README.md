@@ -28,14 +28,14 @@ Azure DevOps를 사용해 Spring Framework Web application을 빌드하고, Azur
 3. Maven Build and Test
 4. Publish Artifact(.WAR)
 
-![ci](img/ci.png)
+![ci](img/ci2.png)
 
 ### CD - Release Pipeline
 1. Automated Triggered Release Pipeline
 2. (Approve/Deny) Deploy to Dev Slot 
 3. (Approve/Deny) Swap Slots (Dev and Production)
 
-![cd](img/cd.png)
+![cd](img/cd2.png)
 
 ### Result
 #### Dev Slot
