@@ -1,4 +1,5 @@
 # Spring Web Application을 위한 Azure DevOps CI/CD 데모
+![badge](https://vsrm.dev.azure.com/hyukjun/_apis/public/Release/badge/12662097-5691-4bfb-b701-d4340345b1fc/7/10)
 ## 요약
 Azure DevOps를 사용해 Spring Framework Web application을 빌드하고, Azure App Service - Webapp에 배포하는 CI/CD 데모
 ## 데모 환경
@@ -21,7 +22,7 @@ Azure DevOps를 사용해 Spring Framework Web application을 빌드하고, Azur
     - CI: Pipelines
     - CD: Releases
 ## 데모 시나리오
-### CI (azure-pipelines.yml)
+### CI - Build Pipeline (azure-pipelines.yml)
 1. Source PR & Merge
 2. Trigger Build Pipeline
 3. Maven Build and Test
@@ -29,12 +30,22 @@ Azure DevOps를 사용해 Spring Framework Web application을 빌드하고, Azur
 
 ![ci](img/ci.png)
 
-### CD
+### CD - Release Pipeline
 1. Automated Triggered Release Pipeline
 2. (Approve/Deny) Deploy to Dev Slot 
 3. (Approve/Deny) Swap Slots (Dev and Production)
 
 ![cd](img/cd.png)
+
+### Result
+#### Dev Slot
+
+![dev](img/dev.png)
+
+#### Production Slot
+
+![prod](img/prod.png)
+
 ---
 ## 데모 사용시 참고
 ## mvnw Command
