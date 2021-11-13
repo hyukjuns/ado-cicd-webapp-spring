@@ -35,28 +35,28 @@ Azure DevOps를 사용해 Spring Framework Web application을 빌드하고, Azur
 ## mvnw Command
 ### Run
 #### mvnw
-```aidl
+```
 mvnw spring-boot:run
 ```
 #### war
-```aidl
+```
 java -jar <WARFILE>.war
 ```
 ### Build
-```aidl
+```
 mvnw package
 ```
 ### Java Command
 Compile -> .class
-```aidl
+```
 javac <JAVAFILE>.java
 ```
 Excuting Class
-```aidl
+```
 java <ClassName>
 ```
 Excuting JAR or WAR
-```aidl
+```
 java -jar <FILENAME>.jar or <FILENAME>.war 
 ```
 #### Maven Build
