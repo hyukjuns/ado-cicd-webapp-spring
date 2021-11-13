@@ -21,15 +21,20 @@ Azure DevOps를 사용해 Spring Framework Web application을 빌드하고, Azur
     - CI: Pipelines
     - CD: Releases
 ## 데모 시나리오
-### CI
+### CI (azure-pipelines-1.yml)
 1. Source PR & Merge
 2. Trigger Build Pipeline
 3. Maven Build and Test
 4. Publish Artifact(.WAR)
+
+![ci](img/ci.png)
+
 ### CD
 1. Automated Triggered Release Pipeline
 2. (Approve/Deny) Deploy to Dev Slot 
 3. (Approve/Deny) Swap Slots (Dev and Production)
+
+![cd](img/cd.png)
 ---
 ## 데모 사용시 참고
 ## mvnw Command
