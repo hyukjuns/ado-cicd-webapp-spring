@@ -1,4 +1,4 @@
-# demo spring-boot web application
+# Spring Web Application을 위한 Azure DevOps CI/CD 데모
 ## 요약
 Azure DevOps를 사용해 Spring Framework Web application을 빌드하고, Azure App Service - Webapp에 배포하는 CI/CD 데모
 ## 데모 환경
