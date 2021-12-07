@@ -3,23 +3,26 @@
 ![badge](https://vsrm.dev.azure.com/hyukjun/_apis/public/Release/badge/12662097-5691-4bfb-b701-d4340345b1fc/7/10)
 ## 요약
 Azure DevOps를 사용해 Spring Framework Web application을 빌드하고, Azure App Service - Webapp에 배포하는 CI/CD 데모
+* Source repository는 Azure Repos에 Github repository를 import하여 사용할 수 있습니다.
 ## 데모 환경
-- Spring Framework Project
+### Spring Framework Project
+[spring-boot settings](https://start.spring.io/)
+
     - Spring Initailizer
         - Maven Project
         - Java Version: 8 (OpenJDK 1.8)
-        - Spring Boot: 2.4.5
+        - Spring Boot: > 2.6.0
         - Packaging: War
         - Dependancies   
             - Spring Web
             - Thymeleaf
             - Spring Boot DevTools
-- Azure
+### Azure
     - App Service
-        - Webapp (Java)
+        - Webapp for Linux
             - Slot: Production, Dev
-            - Runtime stack: Tomcat 8.5 (TOMCAT|8.5-jre8)
-- Azure DevOps (CI/CD Platform)
+            - Runtime stack: Java 1.8, Tomcat 8.5 (TOMCAT|8.5-jre8)
+### Azure DevOps (CI/CD Platform)
     - CI: Pipelines
     - CD: Releases
 ## 데모 시나리오
