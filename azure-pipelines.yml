@@ -1,36 +1,49 @@
-# Maven package Java project Web App to Linux on Azure
-# Build your Java project and deploy it to Azure as a Linux web app
-# Add steps that analyze code, save build artifacts, deploy, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/java
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
 
 trigger:
-- none
+  branches:
+    include:
+      - main
+  paths:
+    include:
+      - src/main/resources/static
+    exclude:
+      - README.md
 
 variables:
-  # Agent VM image name
-  vmImageName: 'ubuntu-latest'
+  vmImage: ubuntu-latest
 
 stages:
 - stage: Build
-  displayName: Build stage
   jobs:
-  - job: MavenPackageAndPublishArtifacts
-    displayName: Maven Package and Publish Artifacts
-    pool:
-      vmImage: $(vmImageName)
-    steps:
-    - task: Maven@3
-      displayName: 'Maven Package'
-      inputs:
-        mavenPomFile: 'pom.xml'
-    - task: CopyFiles@2
-      displayName: 'Copy Files to artifact staging directory'
-      inputs:
-        SourceFolder: '$(System.DefaultWorkingDirectory)'
-        Contents: '**/target/*.?(war|jar)'
-        TargetFolder: $(Build.ArtifactStagingDirectory)
-    - task: PublishPipelineArtifact@1
-      inputs:
-        targetPath: '$(Build.ArtifactStagingDirectory)'
-        artifact: 'drop'
-        publishLocation: 'pipeline'
+    - job:
+      pool:
+        vmImage: $(vmImage)
+      steps:
+      - task: Maven@3
+        displayName: Maven Package
+        inputs:
+          mavenPomFile: 'pom.xml'
+          publishJUnitResults: true
+          testResultsFiles: '**/surefire-reports/TEST-*.xml'
+          javaHomeOption: 'JDKVersion'
+          jdkVersionOption: '1.8'
+          mavenVersionOption: 'Default'
+          mavenAuthenticateFeed: false
+          effectivePomSkip: false
+          sonarQubeRunAnalysis: false
+      - task: Bash@3
+        displayName: Rename ROOT.war
+        inputs:
+          targetType: 'inline'
+          script: 'cp *.war ROOT.war'
+          workingDirectory: '$(System.DefaultWorkingDirectory)/target'
+      - task: PublishBuildArtifacts@1
+        displayName: Publish Artifact
+        inputs:
+          PathtoPublish: '$(System.DefaultWorkingDirectory)/target'
+          ArtifactName: 'drop'
+          publishLocation: 'Container'

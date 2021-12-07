@@ -18,38 +18,32 @@ Azure DevOps를 사용해 Spring Framework Web application을 빌드하고, Azur
     - App Service
         - Webapp (Java)
             - Slot: Production, Dev
-            - Runtime stack: Tomcat 9.0 (TOMCAT|9.0-jre8)
+            - Runtime stack: Tomcat 8.5 (TOMCAT|8.5-jre8)
 - Azure DevOps (CI/CD Platform)
     - CI: Pipelines
     - CD: Releases
 ## 데모 시나리오
-### CI - Build Pipeline (azure-pipelines.yml)
-1. Source PR & Merge
-2. Trigger Build Pipeline
-3. Maven Build and Test
-4. Publish Artifact(.WAR)
+![cicd](images/ci_cd.png)
+### CI (Build Pipeline)
+- Source Merge -> Maven package -> Rename ROOT.war -> Publish Artifact
 
-![ci](img/ci2.png)
+![ci](images/ci2.png)
+### CD (Release Pipeline)
+- Deploy to Dev Slot -> Deploy to Staging Slot -> Swap Slot: Staging and Production
 
-### CD - Release Pipeline
-1. Automated Triggered Release Pipeline
-2. (Approve/Deny) Deploy to Dev Slot 
-3. (Approve/Deny) Swap Slots (Dev and Production)
-
-![cd](img/cd2.png)
+![cd](images/cd2.png)
 
 ### Result
 #### Dev Slot
 
-![dev](img/dev.png)
+![dev](images/dev.png)
 
 #### Production Slot
 
-![prod](img/prod.png)
+![prod](images/prod.png)
 
 ---
-## 데모 사용시 참고
-## mvnw Command
+## Commands
 ### Run
 #### mvnw
 ```
@@ -75,12 +69,6 @@ java <ClassName>
 Excuting JAR or WAR
 ```
 java -jar <FILENAME>.jar or <FILENAME>.war 
-```
-#### Maven Build
-1. POM.xml
-Maven Build시 WAR 파일 이름 설정 필요
-```
-<finalName>ROOT</finalName>
 ```
 #### Reference
 [Spring GetStarted](https://spring.io/guides/gs/serving-web-content/)
