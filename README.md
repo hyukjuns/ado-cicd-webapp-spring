@@ -1,6 +1,6 @@
 # Spring Web Application CI/CD Demo
 [![Build Status](https://dev.azure.com/hyukjun/spring-demo/_apis/build/status/hyukjuns.spring-webapp-cicd-demo?branchName=main)](https://dev.azure.com/hyukjun/spring-demo/_build/latest?definitionId=30&branchName=main)
-![badge](https://vsrm.dev.azure.com/hyukjun/_apis/public/Release/badge/12662097-5691-4bfb-b701-d4340345b1fc/7/10)
+![badge](https://vsrm.dev.azure.com/hyukjun/_apis/public/Release/badge/12662097-5691-4bfb-b701-d4340345b1fc/7/13)
 ## 요약
 Azure DevOps를 사용해 Spring Framework Web application을 빌드하고, Azure App Service - Webapp에 배포하는 CI/CD 데모
 * Source repository는 Azure Repos에 Github repository를 import하여 사용할 수 있습니다.
@@ -30,20 +30,15 @@ Azure DevOps를 사용해 Spring Framework Web application을 빌드하고, Azur
 ### CI (Build Pipeline)
 - Source Merge -> Maven package -> Rename ROOT.war -> Publish Artifact
 
-![ci](images/ci2.png)
+![ci](images/ci.png)
 ### CD (Release Pipeline)
 - Deploy to Dev Slot -> Deploy to Staging Slot -> Swap Slot: Staging and Production
 
-![cd](images/cd2.png)
+![cd](images/cd.png)
 
-### Result
-#### Dev Slot
+### 파이프라인 완료 후 Production Slot
 
-![dev](images/dev.png)
-
-#### Production Slot
-
-![prod](images/prod.png)
+![prod](images/result.png)
 
 ---
 ## Commands
